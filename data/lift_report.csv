@@ -1,0 +1,2 @@
+campaign_group_size,campaign_returned,campaign_return_rate_pct,holdout_group_size,holdout_returned,holdout_return_rate_pct,incremental_lift_pp,revenue_recovered,campaign_cost,campaign_roi,new_paytm_users_acquired
+84,33,39.3,12,3,25.0,14.3,12565.57,1680,7.48,18

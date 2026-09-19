@@ -1,0 +1,9 @@
+{
+  "action": "Win back lapsed customers",
+  "discount": 20,
+  "target_count": 84,
+  "return_rate": 39.285714285714285,
+  "best_segment": "Afternoon",
+  "revenue_recovered": 12565.57,
+  "summary": "VyaparDost campaign record (2026-09-19T09:20:57): action='Win back lapsed customers', discount=Rs.20, customers_targeted=84, return_rate=39.3%, best_performing_segment='Afternoon', revenue_recovered=Rs.12566."
+}

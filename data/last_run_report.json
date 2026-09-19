@@ -1,0 +1,152 @@
+{
+  "generated_at": "2026-09-19T09:21:04",
+  "language": "Hindi",
+  "business_type": "General Store / Kirana",
+  "detect": {
+    "customers_this_week": 307,
+    "customers_normal": 398.7142857142857,
+    "sales_this_week": 70910.35000000005,
+    "sales_normal": 96811.88428571426,
+    "loss_amount": 25901.53428571421,
+    "dip_pct": 26.754498661830397
+  },
+  "sales_pattern": {
+    "best_day": "Sunday",
+    "best_day_amount": 111027.34999999989,
+    "worst_day": "Thursday",
+    "worst_day_amount": 99663.32,
+    "best_slot_day": "Wednesday",
+    "best_slot_name": "Afternoon",
+    "best_slot_amount": 42191.51,
+    "worst_slot_day": "Saturday",
+    "worst_slot_name": "Morning",
+    "worst_slot_amount": 27407.909999999993,
+    "day_totals": {
+      "Monday": {
+        "Morning": 31497.390000000003,
+        "Afternoon": 39557.65999999998,
+        "Evening": 36461.74000000001
+      },
+      "Tuesday": {
+        "Morning": 31170.510000000006,
+        "Afternoon": 39512.530000000006,
+        "Evening": 35260.93000000001
+      },
+      "Wednesday": {
+        "Morning": 29720.009999999995,
+        "Afternoon": 42191.51,
+        "Evening": 38650.55999999998
+      },
+      "Thursday": {
+        "Morning": 30612.329999999998,
+        "Afternoon": 36423.840000000004,
+        "Evening": 32627.149999999998
+      },
+      "Friday": {
+        "Morning": 31281.659999999996,
+        "Afternoon": 40228.43000000003,
+        "Evening": 37246.32
+      },
+      "Saturday": {
+        "Morning": 27407.909999999993,
+        "Afternoon": 40821.60999999997,
+        "Evening": 36894.100000000006
+      },
+      "Sunday": {
+        "Morning": 34359.150000000016,
+        "Afternoon": 40654.600000000006,
+        "Evening": 36013.60000000004
+      }
+    }
+  },
+  "festival": {
+    "name": "Navratri begins",
+    "date": "2026-10-11",
+    "days_until": 22,
+    "is_high_demand": true,
+    "suggested_items": "pooja items, decorations, and daily essentials"
+  },
+  "memory_recall": {
+    "text": "Your last campaign, 'Win back lapsed customers' with a ₹20 discount, had a 39.3% return rate and worked best with Afternoon customers, recovering ₹12,566.",
+    "source": "local"
+  },
+  "decide": {
+    "options": [
+      {
+        "action": "Win back lapsed customers",
+        "expected_opportunity": 12000.0
+      },
+      {
+        "action": "Promote evening products",
+        "expected_opportunity": 6500.0
+      },
+      {
+        "action": "Run a weekend offer",
+        "expected_opportunity": 4200.0
+      }
+    ],
+    "recommended": "Win back lapsed customers"
+  },
+  "recovery_plan": {
+    "target_count": 84,
+    "discount": 20,
+    "recovery_pct": 46.329301838379926
+  },
+  "approved": true,
+  "act_result": {
+    "status": "campaign_sent",
+    "offer_text": "₹20 off your next purchase at Sharma Kirana — when you pay via Paytm.",
+    "total_targeted": 84,
+    "cash_only_count": 43,
+    "paytm_acquisition_opportunity": 43,
+    "action": "Win back lapsed customers",
+    "discount": 20
+  },
+  "measure_result": {
+    "campaign_targeted": 84,
+    "campaign_returned": 33,
+    "campaign_rate_pct": 39.285714285714285,
+    "holdout_targeted": 12,
+    "holdout_returned": 3,
+    "holdout_rate_pct": 25.0,
+    "lift_pp": 14.285714285714285,
+    "revenue_recovered": 12565.57,
+    "campaign_cost": 1680,
+    "roi": 7.479505952380952
+  },
+  "paytm_impact_result": {
+    "new_paytm_users": 18,
+    "projected_monthly_volume": 13762.76,
+    "assumed_monthly_visits": 2
+  },
+  "transcript": [
+    {
+      "tag": "Sales pattern",
+      "text": "आपकी बिक्री के पैटर्न को देखते हुए — रविवार आपका सबसे मजबूत दिन है, और गुरुवार सबसे कमजोर। आपका सबसे अच्छा समय बुधवार दोपहर है, और सबसे शांत समय शनिवार सुबह है।"
+    },
+    {
+      "tag": "Opportunity",
+      "text": "एक और बात — Navratri begins 22 दिनों में है। इस समय pooja items, decorations, and daily essentials की मांग आमतौर पर बढ़ जाती है — स्टॉक बढ़ाना और एक त्योहार ऑफर चलाना फायदेमंद हो सकता है।"
+    },
+    {
+      "tag": "Learn",
+      "text": "मुझे पिछले अभियान से यह याद है — Your last campaign, 'Win back lapsed customers' with a ₹20 discount, had a 39.3% return rate and worked best with Afternoon customers, recovering ₹12,566."
+    },
+    {
+      "tag": "Recommendation",
+      "text": "इस हफ्ते 307 ग्राहक आए, जबकि सामान्य हफ्ते में लगभग 399 ग्राहक आते हैं — लगभग ₹25,902 का नुकसान हुआ। मैंने इसे ठीक करने के तीन तरीके देखे। पुराने ग्राहकों को वापस लाना सबसे मजबूत लग रहा है — 84 ग्राहकों को लक्षित करके, लगभग ₹12,000 वापस आने की उम्मीद है, जो नुकसान का लगभग 46% है। ₹20 की छूट बजट और छूट सीमा के भीतर है। क्या मैं इसे शुरू करूं?"
+    },
+    {
+      "tag": "Confirmed",
+      "text": "Approved — launching the campaign now."
+    },
+    {
+      "tag": "Result",
+      "text": "अभियान 84 ग्राहकों को भेजा गया। इनमें से 43 नकद-भुगतान वाले ग्राहक हैं — पेटीएम पर लाने का मौका।"
+    },
+    {
+      "tag": "Paytm impact",
+      "text": "व्यापारी के अपने रिकवरी के अलावा, इस अभियान ने 18 नए उपयोगकर्ताओं को पेटीएम पर लाया, जिससे पेटीएम के प्लेटफॉर्म पर लगभग ₹13,763 प्रति माह लेनदेन बढ़ने का अनुमान है।"
+    }
+  ]
+}

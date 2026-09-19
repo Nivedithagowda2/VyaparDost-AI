@@ -1,0 +1,18 @@
+[
+  {
+    "id": "6bae7976",
+    "amount": 448.0,
+    "received_at": "2026-09-19T11:22:16.780994",
+    "claimed": true,
+    "claimed_at": "2026-09-19T11:22:28.827718"
+  },
+  {
+    "id": "2a3b0a41",
+    "txn_id": "TEST001",
+    "amount": 50.0,
+    "received_at": "2026-09-19T12:15:16.059764",
+    "claimed": true,
+    "claimed_at": "2026-09-19T12:15:44.009333",
+    "source": "simulated"
+  }
+]

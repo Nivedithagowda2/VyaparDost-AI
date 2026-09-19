@@ -1,0 +1,9 @@
+{
+  "action": "Win back lapsed customers",
+  "discount": 20,
+  "merchant_name": "Sharma Kirana",
+  "target_customers": [
+    {"customer_id": "C001", "paytm_user": false, "avg_basket_value": 380},
+    {"customer_id": "C002", "paytm_user": true, "avg_basket_value": 250}
+  ]
+}

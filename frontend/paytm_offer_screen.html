@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VyaparDost — Mock Paytm Offer Screen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<style>
+  :root {
+    --navy: #002970;
+    --navy-deep: #001a4d;
+    --cyan: #00baf2;
+    --amber: #ffb800;
+    --surface: #ffffff;
+    --backdrop: #eef1f6;
+    --ink: #10182b;
+    --ink-soft: #5b6478;
+    --line: #e4e8f0;
+    --success: #12a150;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--backdrop);
+    font-family: 'Inter', system-ui, sans-serif;
+    color: var(--ink);
+    padding: 32px 16px;
+  }
+
+  .stage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    width: 100%;
+    max-width: 380px;
+  }
+
+  .proto-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12.5px;
+    font-weight: 500;
+    color: var(--ink-soft);
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 6px 14px;
+  }
+  .proto-badge span.dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--amber);
+    flex-shrink: 0;
+  }
+
+  .phone {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 9 / 18.5;
+    background: var(--navy-deep);
+    border-radius: 38px;
+    padding: 12px;
+    box-shadow: 0 30px 60px -20px rgba(0, 26, 77, 0.45), 0 0 0 1px rgba(0,0,0,0.04);
+  }
+
+  .notch {
+    position: absolute;
+    top: 12px; left: 50%;
+    transform: translateX(-50%);
+    width: 90px; height: 22px;
+    background: var(--navy-deep);
+    border-radius: 0 0 16px 16px;
+    z-index: 5;
+  }
+
+  .screen {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: var(--surface);
+    border-radius: 28px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .topbar {
+    background: linear-gradient(135deg, var(--navy) 0%, #003a8c 100%);
+    color: #fff;
+    padding: 30px 20px 20px;
+    text-align: center;
+  }
+  .topbar .brand {
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+    font-size: 17px;
+    letter-spacing: 0.2px;
+  }
+  .topbar .brand span { color: var(--cyan); }
+  .topbar .merchant {
+    margin-top: 10px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.8);
+  }
+  .topbar .merchant strong { color: #fff; font-weight: 600; }
+
+  .body-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 22px 22px 26px;
+    gap: 16px;
+  }
+
+  .offer-amount {
+    font-family: 'Sora', sans-serif;
+    font-weight: 800;
+    font-size: 42px;
+    color: var(--amber);
+    line-height: 1;
+  }
+  .offer-caption {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    text-align: center;
+    max-width: 220px;
+    line-height: 1.4;
+  }
+
+  .qr-frame {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 14px;
+    margin-top: 4px;
+  }
+  #qr-canvas img, #qr-canvas canvas { display: block; }
+
+  .scan-hint {
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .scan-hint .cyan-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--cyan);
+  }
+
+  .cta {
+    width: 100%;
+    background: var(--navy);
+    color: #fff;
+    border: none;
+    border-radius: 14px;
+    padding: 14px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 14.5px;
+    cursor: pointer;
+    transition: transform 0.15s ease, background 0.15s ease;
+  }
+  .cta:hover { background: #003a8c; }
+  .cta:active { transform: scale(0.98); }
+
+  .footer-note {
+    padding: 0 22px 20px;
+    font-size: 11px;
+    color: #9aa2b4;
+    text-align: center;
+    line-height: 1.5;
+  }
+
+  /* ---- Success state ---- */
+  .success-view {
+    display: none;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 24px;
+    text-align: center;
+    gap: 14px;
+  }
+  .success-view.active { display: flex; }
+  .body-area.hidden { display: none; }
+
+  .check-circle {
+    width: 64px; height: 64px;
+    border-radius: 50%;
+    background: rgba(18,161,80,0.1);
+    display: flex; align-items: center; justify-content: center;
+    animation: pop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  .check-circle svg { width: 30px; height: 30px; }
+  @keyframes pop {
+    0% { transform: scale(0); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+
+  .success-title {
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+    font-size: 19px;
+    color: var(--success);
+  }
+  .success-sub {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    max-width: 230px;
+    line-height: 1.5;
+  }
+  .new-user-tag {
+    margin-top: 6px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(0,186,242,0.1);
+    color: var(--navy);
+    border-radius: 999px;
+    padding: 7px 14px;
+    font-size: 12.5px;
+    font-weight: 600;
+  }
+  .new-user-tag .cyan-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--cyan); }
+
+  .reset-link {
+    margin-top: 10px;
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    text-decoration: underline;
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-family: 'Inter', sans-serif;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .check-circle { animation: none; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="stage">
+    <div class="proto-badge"><span class="dot"></span> Simulated screen — hackathon prototype, not the real Paytm app</div>
+
+    <div class="phone">
+      <div class="notch"></div>
+      <div class="screen">
+        <div class="topbar">
+          <div class="brand">pay<span>tm</span></div>
+          <div class="merchant" id="merchant-line">Offer at <strong>Sharma Kirana</strong></div>
+        </div>
+
+        <div class="body-area" id="offer-view">
+          <div class="offer-amount" id="discount-amount">₹20 OFF</div>
+          <div class="offer-caption" id="offer-caption">
+            On your next purchase — redeemable only when you pay via Paytm
+          </div>
+
+          <div class="qr-frame">
+            <div id="qr-canvas"></div>
+          </div>
+
+          <div class="scan-hint"><span class="cyan-dot"></span> Scan with any UPI app to redeem</div>
+
+          <button class="cta" onclick="simulateScan()">Simulate scan &amp; pay</button>
+        </div>
+
+        <div class="success-view" id="success-view">
+          <div class="check-circle">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M4 12.5L9.5 18L20 6" stroke="#12a150" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="success-title">Payment successful</div>
+          <div class="success-sub" id="success-sub">₹20 discount applied at Sharma Kirana. Amount paid via Paytm.</div>
+          <div class="new-user-tag" id="new-user-tag"><span class="cyan-dot"></span> Welcome — first Paytm payment</div>
+          <button class="reset-link" onclick="resetScreen()">Show offer again</button>
+        </div>
+
+        <div class="footer-note" id="footer-note">
+          Offer valid once per customer · Terms apply
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script>
+  // Reads values from the URL so this can later be driven by the real
+  // n8n webhook response (merchant name, discount, whether this
+  // customer is cash-only i.e. a new Paytm acquisition) instead of
+  // being hardcoded — defaults match the current run_demo.py values
+  // so it works standalone too.
+  const params = new URLSearchParams(window.location.search);
+  const merchant = params.get('merchant') || 'Sharma Kirana';
+  const discount = params.get('discount') || '20';
+  const cashOnly = params.get('cash_only') !== 'false'; // default true for demo
+
+  document.getElementById('merchant-line').innerHTML = `Offer at <strong>${merchant}</strong>`;
+  document.getElementById('discount-amount').textContent = `₹${discount} OFF`;
+  document.getElementById('offer-caption').textContent =
+    `On your next purchase — redeemable only when you pay via Paytm`;
+  document.getElementById('success-sub').textContent =
+    `₹${discount} discount applied at ${merchant}. Amount paid via Paytm.`;
+
+  const newUserTag = document.getElementById('new-user-tag');
+  if (!cashOnly) {
+    newUserTag.style.display = 'none';
+  }
+
+  // Encodes a plausible (mock) redemption link — not a real Paytm endpoint.
+  const qrPayload = `https://paytm.me/offer?merchant=${encodeURIComponent(merchant)}&discount=${discount}&code=VYD-DEMO`;
+  new QRCode(document.getElementById('qr-canvas'), {
+    text: qrPayload,
+    width: 150,
+    height: 150,
+    colorDark: '#002970',
+    colorLight: '#ffffff',
+    correctLevel: QRCode.CorrectLevel.M,
+  });
+
+  function simulateScan() {
+    document.getElementById('offer-view').classList.add('hidden');
+    document.getElementById('success-view').classList.add('active');
+  }
+
+  function resetScreen() {
+    document.getElementById('success-view').classList.remove('active');
+    document.getElementById('offer-view').classList.remove('hidden');
+  }
+</script>
+
+</body>
+</html>
