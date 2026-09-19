@@ -414,7 +414,8 @@ if __name__ == "__main__":
         print("Make sure the file sits at frontend/dashboard.html, directly next to your engine/ folder.")
     else:
         print(f"Serving dashboard from: {dashboard_path}")
-    print("VyaparDost dashboard running at http://127.0.0.1:5000")
+    port = int(os.environ.get("PORT", 5000))
+    print(f"VyaparDost dashboard running at http://127.0.0.1:{port}")
     print("(Run `python engine/run_demo.py` separately in another terminal for the voice-guided flow)")
     print("(0.0.0.0 binding below lets your phone reach /api/payment/webhook over WiFi — see the SMS-forwarding setup)")
-    app.run(host="0.0.0.0", port=5000, debug=True)
+    app.run(host="0.0.0.0", port=port, debug=False)
